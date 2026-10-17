@@ -9,12 +9,12 @@
 * { box-sizing: border-box; }
 body {
     font-family: Arial, sans-serif;
-    background: #eaf2f8;
+    background: #fff3f8;
     margin: 0;
     color: #333;
 }
 header {
-    background: #17365d;
+    background: #a83f70;
     color: white;
     text-align: center;
     padding: 32px 18px;
@@ -28,11 +28,11 @@ header p { margin: 8px 0 0; }
     padding: 28px;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 3px 10px #ccc;
+    box-shadow: 0 8px 24px rgba(168, 63, 112, 0.12);
 }
 h2 {
-    color: #17365d;
-    border-bottom: 2px solid #17365d;
+    color: #9b3d68;
+    border-bottom: 2px solid #e7a7c4;
     padding-bottom: 7px;
     margin-top: 28px;
 }
@@ -42,17 +42,78 @@ ul { padding-left: 24px; }
 .info { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
 .info p { margin: 4px 0; line-height: 1.4; }
 footer {
-    background: #17365d;
+    background: #a83f70;
     color: white;
     text-align: center;
     padding: 12px;
 }
+.welcome-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+    background: radial-gradient(circle at top left, #ffe0ec, transparent 38%),
+                linear-gradient(135deg, #fff7fa, #fbe3ef);
+}
+.welcome-card {
+    max-width: 680px;
+    width: 100%;
+    padding: 54px 28px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #f1c4d7;
+    border-radius: 28px;
+    box-shadow: 0 14px 40px rgba(168, 63, 112, 0.14);
+}
+.flower { font-size: 38px; margin-bottom: 12px; }
+.welcome-card .eyebrow {
+    color: #b45b82;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+}
+.welcome-card h1 {
+    color: #96365f;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(34px, 6vw, 54px);
+    margin: 12px 0;
+}
+.welcome-card p { color: #6e5360; }
+.open-button {
+    margin-top: 20px;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #c45b8a, #96365f);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(150, 54, 95, 0.22);
+}
+.open-button:hover { transform: translateY(-2px); }
+#resumeContent { display: none; }
 @media (max-width: 600px) {
+    .welcome-card { padding: 40px 20px; }
+    .container { margin: 12px; padding: 18px; }
+}
     .container { margin: 12px; padding: 18px; }
 }
 </style>
 </head>
 <body>
+<section class="welcome-screen" id="welcomeScreen">
+    <div class="welcome-card">
+        <div class="flower">✿ ♡ ✿</div>
+        <p class="eyebrow">Welcome to my personal website</p>
+        <h1>Marissa Malsi Talosig</h1>
+        <p>A little introduction to my journey, experiences, and goals.</p>
+        <button class="open-button" onclick="openResume()">♡ Open My Resume ♡</button>
+    </div>
+</section>
+<div id="resumeContent">
 <header>
     <h1>MY RESUME PORTFOLIO</h1>
     <h2 style="color:white; border:none;">Marissa Malsi Talosig</h2>
@@ -124,5 +185,13 @@ footer {
 <footer>
     <p>Marissa Talosig | Resume Portfolio | 2026</p>
 </footer>
+</div>
+<script>
+function openResume() {
+    document.getElementById('welcomeScreen').style.display = 'none';
+    document.getElementById('resumeContent').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
 </body>
 </html>
