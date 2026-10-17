@@ -39,7 +39,8 @@ h2 {
 h2:first-child { margin-top: 0; }
 p, li { line-height: 1.7; }
 ul { padding-left: 24px; }
-.info { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+.info { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.info p { margin: 4px 0; line-height: 1.4; }
 footer {
     background: #17365d;
     color: white;
@@ -48,7 +49,6 @@ footer {
 }
 @media (max-width: 600px) {
     .container { margin: 12px; padding: 18px; }
-    .info { grid-template-columns: 1fr; }
 }
 </style>
 </head>
